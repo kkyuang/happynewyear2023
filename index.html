@@ -51,17 +51,27 @@
         font-weight: 700;
         font-style: normal;
     }
-    .pannel{
+
+    .pannel {
         width: 60%;
         margin: 0 auto;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        z-index: 4;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
 
     /* On screens that are 600px or less, set the background color to olive */
     @media screen and (max-width: 600px) {
-        .pannel{
+        .pannel {
             width: 80%;
         }
     }
+
     /*body{font-family:'Apple SD 산돌고딕 Neo', "helvetica", sans-serif}*/
 </style>
 
@@ -95,6 +105,17 @@
             hms.innerHTML = `${h}:${m}:${s}`;
 
             $('#dif').html(`2023년까지<br>${timedif()}<br>남았습니다.`)
+
+            //눈생성
+            $("<div></div>")
+                .css("position", "absolute")
+                .css("left", (Math.random() * 100) + "%")
+                .css("top", "0%")
+                .css('background-color', 'white')
+                .css('width', '15px')
+                .css('height', '15px')
+                .css('border-radius', '10px')
+                .appendTo('body').animate({ top: $(document).height() }, 10 * $(document).height(), "linear")
         }
 
         getClock(); //맨처음에 한번 실행
@@ -120,8 +141,8 @@
 </script>
 
 <body>
-    <div id="clock" class="pannel" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); text-align: center; font-size: 6.5vw;
-        -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;">
+    <div id="clock" class="pannel"
+        style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); text-align: center; font-size: 6.5vw;">
         <div id="top" style="margin-bottom: 5px;">
             <span id="ymd"></span>
         </div>
@@ -133,16 +154,16 @@
         </div>
     </div>
 
-    <div class="pannel" style="margin-top: 100vh; font-size: 3vw;
-        -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;">
+    <div class="pannel" style="top: 100vh; font-size: 3vw;">
 
         <div style=" text-align: center;">
             <span id="dif" style="font-size: 5vw;">경⭐️축</span><br>
             <span id="dif" style="font-size: 3vw;">2023.01.01~2023.02.04</span><br><br>
             <span id="dif" style="font-size: 5vw;">병진이의 기숙학원 입소를<br>축하합니다!</span>
         </div>
-        <img src="img/daesung.jpg" width="80%" style=" margin-top: 15px;"/>
-        <a href="https://www.namyangjuds.co.kr/page/?MM=03&SM=01"><img src="img/logo.png" width="80%" style=" margin-top: 20px;"/></a>
+        <img src="img/daesung.jpg" width="80%" style=" margin-top: 15px;" />
+        <a href="https://www.namyangjuds.co.kr/page/?MM=03&SM=01"><img src="img/logo.png" width="80%"
+                style=" margin-top: 20px;" /></a>
     </div>
 
 
