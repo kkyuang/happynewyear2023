@@ -97,7 +97,7 @@
             var y = String(d.getFullYear());
             var mon = String(d.getMonth() + 1);
             var day = String(d.getDate()).padStart(2, "0");
-            var h = d.getHours()
+            var h = String(d.getHours()).padStart(2, "0");
             var m = String(d.getMinutes()).padStart(2, "0");
             var s = String(d.getSeconds()).padStart(2, "0");
 
@@ -115,7 +115,7 @@
                 .css('width', '15px')
                 .css('height', '15px')
                 .css('border-radius', '10px')
-                .appendTo('body').animate({ top: $(document).height() }, 10 * $(document).height(), "linear")
+                .appendTo('body').animate({ top: $(document).height() }, (10 + Math.random() * 2) * $(document).height(), "linear")
         }
 
         getClock(); //맨처음에 한번 실행
