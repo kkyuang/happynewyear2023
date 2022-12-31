@@ -81,10 +81,23 @@
         date2 = new Date(2023, 00, 01, 00, 00)
         var elapsedMSec = date2.getTime() - date1.getTime();
         var elapsedDay = elapsedMSec / 1000 / 60 / 60 / 24;
-        var elapsedHour = (elapsedMSec / 1000 / 60 / 60) % 24;
+        var elapsedHou = (elapsedMSec / 1000 / 60 / 60) % 24;
         var elapsedMin = (elapsedMSec / 1000 / 60) % 60;
         var elapsedSec = (elapsedMSec / 1000) % 60;
-        return `${Math.floor(elapsedDay)}일 ${Math.floor(elapsedHour)}시간 ${Math.floor(elapsedMin)}분 ${Math.floor(elapsedSec)}초`
+        
+        let resString = "";
+        
+        if(Math.floor(elapsedDay) !== 0) resString += `${Math.floor(elapsedDay)}일`;
+        if(Math.floor(elapsedHou) !== 0) resString += ` ${Math.floor(elapsedHou)}시간`;
+        if(Math.floor(elapsedMin) !== 0) resString += ` ${Math.floor(elapsedMin)}분`;
+        if(Math.floor(elapsedSec) !== 0){
+            resString += ` ${Math.floor(elapsedSec)}초`;
+        }
+        else {
+            resString += ` 0초`;
+        }
+        
+        return resString.trim();
     }
 
     var isDarkMode = false;
