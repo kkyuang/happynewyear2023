@@ -19,7 +19,7 @@
 
     body {
         font-family: 'KorailRoundGothicBold', sans-serif;
-        color: black;
+        color: white; text-shadow: 3px 3px 20px rgb(62, 62, 62);
         -ms-overflow-style: none;
         /* IE and Edge */
         scrollbar-width: none;
@@ -72,6 +72,28 @@
         }
     }
 
+    body {
+        overflow: auto;
+    }
+
+    body::before {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('img/1.jpg');
+        background-size: cover;
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        -o-filter: blur(5px);
+        -ms-filter: blur(5px);
+        filter: blur(5px);
+        transform: scale(1.02);
+        z-index: -1;
+        content: "";
+    }
+
     /*body{font-family:'Apple SD 산돌고딕 Neo', "helvetica", sans-serif}*/
 </style>
 
@@ -84,19 +106,19 @@
         var elapsedHou = (elapsedMSec / 1000 / 60 / 60) % 24;
         var elapsedMin = (elapsedMSec / 1000 / 60) % 60;
         var elapsedSec = (elapsedMSec / 1000) % 60;
-        
+
         let resString = "";
-        
-        if(Math.floor(elapsedDay) !== 0) resString += `${Math.floor(elapsedDay)}일`;
-        if(Math.floor(elapsedHou) !== 0) resString += ` ${Math.floor(elapsedHou)}시간`;
-        if(Math.floor(elapsedMin) !== 0) resString += ` ${Math.floor(elapsedMin)}분`;
-        if(Math.floor(elapsedSec) !== 0){
+
+        if (Math.floor(elapsedDay) !== 0) resString += `${Math.floor(elapsedDay)}일`;
+        if (Math.floor(elapsedHou) !== 0) resString += ` ${Math.floor(elapsedHou)}시간`;
+        if (Math.floor(elapsedMin) !== 0) resString += ` ${Math.floor(elapsedMin)}분`;
+        if (Math.floor(elapsedSec) !== 0) {
             resString += ` ${Math.floor(elapsedSec)}초`;
         }
         else {
             resString += ` 0초`;
         }
-        
+
         return resString.trim();
     }
 
@@ -189,13 +211,13 @@
             <span id="dif" style="font-size: 5vw;">류익현 공부 열심히 해🖋</span><br>
             <span id="dif" style="font-size: 5vw;">전교1등 가보자고~</span>
         </div>
-    </div>-->
+    </div>
 
 
     <div id="btns" style="margin-top: 1000%; text-align: center; font-size: 7vw;
         -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none">
         <button onclick="changDarkMode()" id="darkBtn">다크모드</button>
-    </div>
+    </div>-->
 </body>
 
 </html>
