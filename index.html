@@ -120,7 +120,8 @@
             $('#dif').html(`2023년까지<br>${timedif()}<br>남았습니다.`)
 
             //눈생성
-            $("<div></div>")
+            var tm = (10 + Math.random() * 2) * $(document).height()
+            var sn = $("<div></div>")
                 .css("position", "absolute")
                 .css("left", (Math.random() * 100) + "%")
                 .css("top", "0%")
@@ -128,7 +129,10 @@
                 .css('width', '15px')
                 .css('height', '15px')
                 .css('border-radius', '10px')
-                .appendTo('body').animate({ top: $(document).height() }, (10 + Math.random() * 2) * $(document).height(), "linear")
+                .appendTo('body').animate({ top: $(document).height() }, tm, "linear")
+            setInterval(() => {
+                sn.remove()
+            }, tm);
         }
 
         getClock(); //맨처음에 한번 실행
