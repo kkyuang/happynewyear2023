@@ -76,7 +76,7 @@
         overflow: auto;
     }
 
-    body::before {
+    #backg {
         position: fixed;
         top: 0;
         left: 0;
@@ -140,6 +140,8 @@
             hms.innerHTML = `${h}:${m}:${s}`;
 
             $('#dif').html(`2023년까지<br>${timedif()}<br>남았습니다.`)
+            $('#backg').css('background-image', `url('img/${m % 11}.jpg')`)
+
 
             //눈생성
             var tm = (10 + Math.random() * 2) * $(document).height()
@@ -178,8 +180,8 @@
         }
     }
 </script>
-
 <body>
+    <div id="backg"></div>
     <div id="clock" class="pannel"
         style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); text-align: center; font-size: 6.5vw;">
         <div id="top" style="margin-bottom: 5px;">
